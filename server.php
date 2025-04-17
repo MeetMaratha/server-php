@@ -31,8 +31,10 @@ function print_response($dictionary = [], $error = "none")
 {
     $string = "";
 
+    error_log($_REQUEST["command"]);
     # Convert our dictionary into JSON string
     $string = "{\"error\" : \"$error\", \"command\" : \"$_REQUEST[command]\", \"response\" : " . json_encode($dictionary) . "}";
+    error_log($string);
 
     # Print out our json to Godot!
     echo $string;
